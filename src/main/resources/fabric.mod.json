@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "hyper_silt",
+	"version": "${version}",
+	"name": "Hyper Silt",
+	"description": "BLJ",
+	"authors": [
+		"hama",
+		"keyberries"
+	],
+	"contact": {
+		"homepage": "https://websoilsurvey.nrcs.usda.gov/app/"
+	},
+	"license": "ARR",
+	"icon": "assets/hyper_silt/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"hama.industries.hypersilt.HyperSilt"
+		],
+		"client": [
+			"hama.industries.hypersilt.HyperSiltClient"
+		],
+		"fabric-datagen": [
+			"hama.industries.hypersilt.HyperSiltDataGenerator"
+		]
+	},
+	"mixins": [
+		"hyper_silt.mixins.json",
+		{
+			"config": "hyper_silt.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

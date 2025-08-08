@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "hama.industries.hypersilt.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"MixinBlock"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
