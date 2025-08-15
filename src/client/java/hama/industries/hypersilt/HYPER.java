@@ -33,8 +33,8 @@ public class HYPER {
     void renderTAIL(LivingEntityRenderer<T, S, M> renderer, S state, MatrixStack matrices, VertexConsumerProvider vertexConsumerProvider, int packedLight) {
         IHYPER hyper = ((IHYPER)state);
         if (hyper.hyper_silt$FIRED()) return;
-
-        if (!hyper.hyper_silt$HYPER() && afterImages.get(hyper.hyper_silt$id()) == null) return;
+        var entry = afterImages.get(hyper.hyper_silt$id());
+        if (!hyper.hyper_silt$HYPER() && (entry == null || afterImages.isEmpty())) return;
 
         hyper.hyper_silt$FIRE(true);
         List<Pair<Vec3d, Integer>> images = afterImages.computeIfAbsent(hyper.hyper_silt$id(), i -> new ReferenceArrayList<>());
@@ -46,14 +46,16 @@ public class HYPER {
             renderer.render(state, matrices, vertexConsumerProvider, packedLight);
             matrices.pop();
         }
-        if ((int)state.age %1 == 0 && hyper.hyper_silt$HYPER()) images.add(new Pair<>(anchor, 10));
+        if (hyper.hyper_silt$HYPER()) images.add(new Pair<>(anchor, 10));
         hyper.hyper_silt$FIRE(false);
     }
 
     public static void clean(ClientWorld world) {
         List<Integer> toRemove = new ReferenceArrayList<>();
         for (int id : afterImages.keySet()) {
-            if (world.getEntityById(id) instanceof LivingEntity living && !living.isRemoved() && !living.isDead()) {
+            if (afterImages.get(id).isEmpty()) {
+                toRemove.add(id);
+            } else if (world.getEntityById(id) instanceof LivingEntity living && !living.isRemoved() && !living.isDead()) {
                 List<Pair< Vec3d, Integer >> subRemovals = new ReferenceArrayList<>();
                 for (Pair< Vec3d, Integer > pair : afterImages.get(id)) {
                     pair.setRight(pair.getRight()-1);
