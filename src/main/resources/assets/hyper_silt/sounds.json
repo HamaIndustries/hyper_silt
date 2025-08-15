@@ -1,0 +1,9 @@
+{
+  "ballsfish": {
+    "subtitle": "subtitles.occmy.ballsfish",
+    "sounds": [
+      "hyper_silt:ballsfish"
+    ],
+    "stream": true
+  }
+}

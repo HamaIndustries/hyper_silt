@@ -3,11 +3,13 @@
   "package": "hama.industries.hypersilt.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "LivingEntityRenderStateMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
+    "LivingEntityRendererMixin",
     "MixinLivingEntity"
   ]
 }

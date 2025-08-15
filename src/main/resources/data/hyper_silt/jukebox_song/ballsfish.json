@@ -1,0 +1,10 @@
+{
+  "comparator_output": 15,
+  "description": {
+    "translate": "jukebox_song.hyper_silt.ballsfish"
+  },
+  "length_in_seconds": 94.0,
+  "sound_event": {
+    "sound_id": "hyper_silt:ballsfish"
+  }
+}

@@ -29,7 +29,8 @@ public abstract class MixinLivingEntity extends Entity {
         return original.call(instance) || (
                 ((Object)this) instanceof ClientPlayerEntity playerEntity &&
                 playerEntity.getStackInHand(Hand.MAIN_HAND).isOf(HyperSilt.HYPER_SILT) &&
-                movementInput.dotProduct(hs$siltFactor) > 0.9
+                movementInput.dotProduct(hs$siltFactor) > 0.9 &&
+                !instance.isOnGround()
                 );
     }
 }
