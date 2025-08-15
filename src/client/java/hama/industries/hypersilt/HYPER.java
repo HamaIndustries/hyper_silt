@@ -6,6 +6,7 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.state.LivingEntityRenderState;
+import net.minecraft.client.render.entity.state.PlayerEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
@@ -87,6 +88,10 @@ public class HYPER {
         renderState.pitch = hyperState.pitch;
         renderState.limbSwingAnimationProgress = hyperState.progress;
         renderState.limbSwingAmplitude = hyperState.amplitude;
+        if (renderState instanceof PlayerEntityRenderState playerState) {
+            playerState.playerName = null;
+            playerState.displayName = null;
+        }
     }
 
     public static void clean(ClientWorld world) {
