@@ -10,4 +10,6 @@ public interface IHYPER {
     void hyper_silt$FIRE(boolean set);
     boolean hyper_silt$FIRED();
     int hyper_silt$id();
+    void hyper_silt$setColor(int color);
+    int hyper_silt$color();
 }

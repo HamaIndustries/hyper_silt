@@ -20,6 +20,9 @@ public abstract class LivingEntityRenderStateMixin implements IHYPER {
     @Unique
     private int hyper_silt$id;
 
+    @Unique
+    private int hyper_silt$color;
+
     @Override
     public boolean hyper_silt$HYPER() {
         return hyper_silt$HYPER;
@@ -50,5 +53,15 @@ public abstract class LivingEntityRenderStateMixin implements IHYPER {
     @Override
     public int hyper_silt$id() {
         return hyper_silt$id;
+    }
+
+    @Override
+    public void hyper_silt$setColor(int color) {
+        hyper_silt$color = color;
+    }
+
+    @Override
+    public int hyper_silt$color() {
+        return hyper_silt$color;
     }
 }
