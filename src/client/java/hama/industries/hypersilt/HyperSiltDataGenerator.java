@@ -6,29 +6,37 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
+import net.minecraft.client.data.ItemModels;
 import net.minecraft.client.data.Models;
-import net.minecraft.item.Items;
 
 public class HyperSiltDataGenerator implements DataGeneratorEntrypoint {
-	@Override
-	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+    @Override
+    public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
+        var pack = fabricDataGenerator.createPack();
+        pack.addProvider(HyperSiltModels::new);
+    }
 
-	}
+    public static final class HyperSiltModels extends FabricModelProvider {
 
-	public static final class HyperSiltModels extends FabricModelProvider {
+        public HyperSiltModels(FabricDataOutput output) {
+            super(output);
+        }
 
-		public HyperSiltModels(FabricDataOutput output) {
-			super(output);
-		}
+        @Override
+        public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
 
-		@Override
-		public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        }
 
-		}
-
-		@Override
-		public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-			itemModelGenerator.registerWithTextureSource(HyperSilt.HYPER_SILT, Items.CLAY_BALL, Models.GENERATED);
-		}
-	}
+        @Override
+        public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+            itemModelGenerator.output.accept(
+                    HyperSilt.HYPER_SILT,
+                    ItemModels.condition(
+                            new BLJProperty(),
+                            ItemModels.basic(itemModelGenerator.registerSubModel(HyperSilt.HYPER_SILT, "_active", Models.GENERATED)),
+                            ItemModels.basic(itemModelGenerator.registerSubModel(HyperSilt.HYPER_SILT, "", Models.GENERATED))
+                    )
+            );
+        }
+    }
 }
