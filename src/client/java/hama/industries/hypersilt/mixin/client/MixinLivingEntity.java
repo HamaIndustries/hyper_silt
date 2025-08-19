@@ -12,6 +12,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(LivingEntity.class)
@@ -20,7 +21,8 @@ public abstract class MixinLivingEntity extends Entity {
         super(type, world);
     }
 
-    private Vec3d hs$siltFactor = new Vec3d(0, 0, -1);
+    @Unique
+    private final Vec3d hs$siltFactor = new Vec3d(0, 0, -1);
 
     @WrapOperation(
             method = "travelMidAir",

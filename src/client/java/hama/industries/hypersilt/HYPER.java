@@ -63,6 +63,11 @@ public class HYPER {
         List<HyperState> images = afterImages.computeIfAbsent(hyper.hyper_silt$id(), i -> new ReferenceArrayList<>());
         Vec3d anchor = hyper.hyper_silt$ANCHOR();
         int lastColor = images.isEmpty() ? 0 : images.getLast().color;
+
+        if (hyper.hyper_silt$HYPER()) {
+            images.add(new HyperState(anchor, 10, (lastColor + 1) % colors.length, state.bodyYaw, state.relativeHeadYaw, state.pitch, state.limbSwingAnimationProgress, state.limbSwingAmplitude));
+        }
+
         for (HyperState hyperState : images) {
             Vec3d pos = hyperState.pos;
             Vec3d offset = pos.subtract(anchor);
@@ -76,8 +81,6 @@ public class HYPER {
             }
             matrices.pop();
         }
-        if (hyper.hyper_silt$HYPER())
-            images.add(new HyperState(anchor, 10, (lastColor + 1) % colors.length, state.bodyYaw, state.relativeHeadYaw, state.pitch, state.limbSwingAnimationProgress, state.limbSwingAmplitude));
         hyper.hyper_silt$setColor(0xffffff);
         hyper.hyper_silt$FIRE(false);
     }
