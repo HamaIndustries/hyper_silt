@@ -31,7 +31,7 @@ public abstract class MixinLivingEntity extends Entity {
     public boolean blj(LivingEntity instance, Operation<Boolean> original, @Local(ordinal = 0) Vec3d movementInput) {
         return original.call(instance) || (
                 ((Object) this) instanceof ClientPlayerEntity playerEntity &&
-                        playerEntity.getStackInHand(Hand.MAIN_HAND).isOf(HyperSilt.HYPER_SILT) &&
+                        playerEntity.getStackInHand(Hand.MAIN_HAND).isIn(HyperSilt.SPEEDRUNNING_SOILS) &&
                         movementInput.dotProduct(hs$siltFactor) > 0.7 &&
                         !instance.isOnGround()
         );

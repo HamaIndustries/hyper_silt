@@ -1,4 +1,7 @@
 // 1.21.8	-999999999-01-01T00:00:00	Hyper Silt/Model Definitions
 104c35cea2b3eb5dbb58bb294ca2d0e615c3c711 assets/hyper_silt/items/hyper_silt.json
+d6355d6235cce654fa29aff74562a6a70851acce assets/hyper_silt/items/omni_clay.json
 d1d96c4ac1217fef376781899c34cc23c038748b assets/hyper_silt/models/item/hyper_silt.json
 be157482c65433a3a5b295216fec5a0cc29c6b1a assets/hyper_silt/models/item/hyper_silt_active.json
+af8e5b9900f9b9e20087530f7197563c7fcfcb08 assets/hyper_silt/models/item/omni_clay.json
+008c0d88b27fb09b62a5368b04487a7af3683b46 assets/hyper_silt/models/item/omni_clay_active.json

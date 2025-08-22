@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "hyper_silt:item/omni_clay"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "hyper_silt:item/omni_clay_active"
+    },
+    "property": "hyper_silt:hyper"
+  }
+}

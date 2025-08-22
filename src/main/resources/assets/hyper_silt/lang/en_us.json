@@ -1,6 +1,10 @@
 {
   "item.hyper_silt.hyper_silt": "Hyper Silt",
+  "item.hyper_silt.omni_clay": "Omni-clay",
+  "item.hyper_silt.ultra_gravel": "Ultra Gravel",
+  "item.hyper_silt.spectrum_sand": "Spectrum Sand",
+  "item.hyper_silt.vacuum_loam": "Vacuum Loam",
   "itemGroup.hyper_silt": "Silts/Loams",
-  "subtitles.occmy.ballsfish": "Nulb - Ballsfish",
+  "subtitles.hyper_silt.ballsfish": "Nulb - Ballsfish",
   "jukebox_song.hyper_silt.ballsfish": "Nulb - Ballsfish"
 }
